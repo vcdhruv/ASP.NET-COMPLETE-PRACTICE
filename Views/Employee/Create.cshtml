@@ -1,0 +1,47 @@
+﻿@model CoreTestApplication.Models.Employee
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center text-primary">Add Employee</h1>
+                    <p class="text-center text-danger">@TempData["message"]</p>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-controller="Employee" asp-action="Create">
+                        <div class="form-group">
+                            <label asp-for="Name"></label>
+                            <input type="text" asp-for="Name" class="form-control" placeholder="Enter Employee Name"/>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Gender"></label>
+                            <input type="text" asp-for="Gender" class="form-control" placeholder="Enter Gender" />
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+
+                        </div><div class="form-group">
+                            <label asp-for="Email"></label>
+                            <input type="text" asp-for="Email" class="form-control" placeholder="Enter Email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+
+                        </div><div class="form-group">
+                            <label asp-for="Country"></label>
+                            <input type="text" asp-for="Country" class="form-control" placeholder="Enter Country Name" />
+                            <span asp-validation-for="Country" class="text-danger"></span>
+
+                        </div>
+                        <div class="aform-group">
+                            <input type="submit" value="Submit" class="btn btn-sm btn-outline-success float-end mt-1"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

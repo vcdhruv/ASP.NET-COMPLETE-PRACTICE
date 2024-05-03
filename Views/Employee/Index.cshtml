@@ -1,0 +1,36 @@
+﻿@model IEnumerable<CoreTestApplication.Models.Employee>
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h1 class="text-center text-primary">Employee Record</h1>
+            <a class="btn btn-sm btn-success m-1" asp-controller="Employee" asp-action="Create">Create</a>
+            <p class="text-center text-success" >@TempData["error"]</p>
+            <table class="table table-bordered">
+                <tr class="text-center">
+                    <th>EmployeeId</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Country</th>
+                    <th colspan="2">Action</th>
+                </tr>
+                @foreach(var data in Model)
+                {
+                    <tr class="text-center">
+                        <td>@data.Id</td>
+                        <td>@data.Name</td>
+                        <td>@data.Gender</td>
+                        <td>@data.Email</td>
+                        <td>@data.Country</td>
+                        <td>
+                            <a class="btn btn-sm btn-warning" asp-controller="Employee" asp-action="Edit" asp-route-id="@data.Id">Edit</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-danger" asp-controller="Employee" asp-action="Delete" asp-route-id="@data.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
